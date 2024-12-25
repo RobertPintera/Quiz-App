@@ -1,0 +1,76 @@
+﻿<UserControl x:Class="Quiz_App.Views.HomeUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Quiz_App.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <DockPanel Background="White">
+        <Border DockPanel.Dock="Top" Background="#FF3B3C8A" Height="80">
+            <Label Content="Quiz App" Foreground="White" FontSize="32" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="16 0 16 0" FontWeight="Bold" FontStyle="Italic"/>
+        </Border>
+
+        <Border DockPanel.Dock="Right" Background="#FF303065" Width="200">
+            <StackPanel Width="160" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0 24 0 0">
+                <Button Command="{Binding NavigateToNewQuiz}" Content="New Quiz" FontSize="24" Height="50" Margin="0 0 0 16" Background="#FF6767A4" Foreground="White" FontWeight="Bold"/>
+                <Button Command="{Binding NavigateToEditor}" Content="Edit Quiz" FontSize="24" Height="50" Margin="0 0 0 16" Background="#FF6767A4" FontWeight="Bold">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Foreground" Value="White" />
+
+                            <Style.Triggers>
+                                <Trigger Property="IsEnabled" Value="false">
+                                    <Setter Property="Foreground" Value="Gray" />
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                </Button>
+                <Button Command="{Binding NavigateToQuiz}" Content="Solve Quiz" FontSize="24" Height="50" Background="#FF6767A4" FontWeight="Bold">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Foreground" Value="White" />
+
+                            <Style.Triggers>
+                                <Trigger Property="IsEnabled" Value="false">
+                                    <Setter Property="Foreground" Value="Gray" />
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                </Button>
+            </StackPanel>
+        </Border>
+
+        <Grid DockPanel.Dock="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="auto"/>
+            </Grid.ColumnDefinitions>
+            <TextBox Text="{Binding FilterText, UpdateSourceTrigger=PropertyChanged}" BorderBrush="DarkGray" FontSize="20" 
+                 VerticalAlignment="Center" HorizontalScrollBarVisibility="Auto" 
+                 BorderThickness="1" Margin="16 8 8 8" MaxLength="100"/>
+            <Button Command="{Binding SearchQuiz}" Grid.Column="1" Content="Search" FontSize="18" Width="70" Height="30" Margin="8 8 16 8" Foreground="White" Background="#FF3C39A7"/>
+        </Grid>
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="70"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+
+            <Label Content="Quizes" FontSize="28" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="104,0,0,0"/>
+            <ListBox ItemsSource="{Binding QuizzesView}" DisplayMemberPath="Title" SelectedItem="{Binding SelectedQuiz}" Grid.Row="1" FontSize="18" BorderBrush="DarkGray" BorderThickness="1" Margin="16,8,16,16"/>
+
+            <Label Grid.Column="2" Content="Description" FontSize="28" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            <TextBox Text="{Binding DescriptionSelectedQuiz}" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" Grid.Row="1" Grid.Column="1" FontSize="18" Margin="16,8,16,16" IsReadOnly="True"/>
+        </Grid>
+
+    </DockPanel>
+</UserControl>
