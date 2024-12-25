@@ -7,7 +7,7 @@
         xmlns:views="clr-namespace:Quiz_App.Views"
         xmlns:local="clr-namespace:Quiz_App"
         mc:Ignorable="d"
-        Title="MainWindow" Height="500" Width="800">
+        Title="Quiz App" Height="500" Width="800">
     <Grid>
         <Grid.Resources>
             <DataTemplate DataType="{x:Type vms:HomeViewModel}">

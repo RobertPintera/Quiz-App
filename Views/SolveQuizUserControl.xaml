@@ -16,7 +16,7 @@
 
             <Button Command="{Binding EndQuiz}" Content="End Quiz" Margin="16" FontSize="18" Background="#FFA04B4B" Foreground="White" Width="100" Height="30" FontStyle="Italic" FontWeight="Bold"/>
 
-            <TextBox Grid.Column="1" Text="{Binding Title}" FontSize="28" Height="60"  Foreground="White" Background="Transparent" BorderBrush="Transparent" VerticalAlignment="Center" HorizontalScrollBarVisibility="Auto" TextAlignment="Center" IsReadOnly="True" Margin="16" FontWeight="Bold"/>
+            <TextBox Grid.Column="1" Text="{Binding Title}" FontSize="28" Height="60"  Foreground="White" Background="Transparent" BorderBrush="Transparent" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalScrollBarVisibility="Auto" TextAlignment="Center" IsReadOnly="True" Margin="16" FontWeight="Bold"/>
 
             <TextBlock Grid.Column="2" Text="{Binding TotalTime}" Width="100" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center" FontSize="24" FontWeight="Bold" Margin="16"/>
         </Grid>
